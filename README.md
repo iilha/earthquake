@@ -1,3 +1,5 @@
+English | [繁體中文](README_zh.md)
+
 # Taiwan Earthquake Map
 
 Real-time seismic activity visualization for Taiwan and surrounding regions.
