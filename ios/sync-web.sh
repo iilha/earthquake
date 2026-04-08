@@ -16,4 +16,7 @@ mkdir -p "$WEB_DIR"
 mkdir -p "$WEB_DIR/img/"
 cp -r "$ROOT_DIR/img/"* "$WEB_DIR/img/"
 
+mkdir -p "$WEB_DIR/js"
+[ -f "$ROOT_DIR/js/bottom-sheet.js" ] && cp "$ROOT_DIR/js/bottom-sheet.js" "$WEB_DIR/js/bottom-sheet.js"
+
 echo "iOS Web assets synced."
