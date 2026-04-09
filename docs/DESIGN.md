@@ -33,7 +33,6 @@ The app provides dual views (Map/List), magnitude/time filtering, social sharing
 
 ### Navigation Header
 - Language toggle button (EN/中文)
-- Links to other transport apps (YouBike, MRT, Weather, Oil)
 - Active state highlighting
 
 ### Filter Controls (Sidebar)
