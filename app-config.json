@@ -1,0 +1,9 @@
+{
+  "appId": "earthquake",
+  "appName": "Earthquake Monitor",
+  "apiBase": "https://api.transport-pwa.com/earthquake",
+  "siteBase": "https://earthquake.transport-pwa.com/",
+  "supportEmail": "transport-pwa@googlegroups.com",
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=tw.pwa.earthquake",
+  "storagePrefix": "earthquake_"
+}
