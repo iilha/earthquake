@@ -1437,35 +1437,6 @@ async function sendFeedbackEmail() {
     const configResp = await fetch('./app-config.json');
     const config = await configResp.json();
 
-        // Initialize analytics
-        initAnalytics(config);
-
-        // Track app_open event with session guard
-        const trackAppOpen = () => {
-          const sessionKey = config.storagePrefix + 'session_tracked';
-
-          if (sessionStorage.getItem(sessionKey)) {
-            console.debug('[Analytics] app_open already tracked this session');
-            return;
-          }
-
-          sessionStorage.setItem(sessionKey, '1');
-
-          trackEvent('app_open', {
-            viewport_width: window.innerWidth,
-            viewport_height: window.innerHeight,
-            lang: localStorage.getItem(config.storagePrefix + 'lang') || 'en',
-            ota_version: parseInt(localStorage.getItem(config.storagePrefix + 'ota_version')) || 0
-          });
-        };
-
-        // Fix #7: DOMContentLoaded race - check if DOM already ready
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', trackAppOpen, { once: true });
-        } else {
-          trackAppOpen(); // DOM already ready, execute immediately
-        }
-
     // Compose mailto: link (no UUID, no PII)
     const subject = encodeURIComponent(`Feedback: ${config.appName}`);
     const nativeVersion = window.__APP_ENV__?.nativeVersionName || '1.0.0';
@@ -1500,6 +1471,15 @@ document.getElementById('about-modal').addEventListener('click', function(e) {
 document.getElementById('feedback-modal').addEventListener('click', function(e) {
   if (e.target === this) closeFeedbackModal();
 });
+
+// Explicit global assignment for onclick handlers
+window.openHelpModal = openHelpModal;
+window.closeHelpModal = closeHelpModal;
+window.openAboutModal = openAboutModal;
+window.closeAboutModal = closeAboutModal;
+window.openFeedbackModal = openFeedbackModal;
+window.closeFeedbackModal = closeFeedbackModal;
+window.sendFeedbackEmail = sendFeedbackEmail;
 
 // ============================================================
 // PUSH NOTIFICATIONS
