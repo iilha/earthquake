@@ -1,7 +1,7 @@
 {
   "appId": "earthquake",
   "appName": "Earthquake Monitor",
-  "apiBase": "https://api.transport-pwa.com/earthquake",
+  "apiBase": "https://app.octileapp.workers.dev",
   "siteBase": "https://earthquake.transport-pwa.com/",
   "workerUrl": "https://api.octile.eu.cc",
   "eventsUrl": "https://api.octile.eu.cc/events",
