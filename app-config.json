@@ -2,7 +2,7 @@
   "appId": "earthquake",
   "appName": "Earthquake Monitor",
   "apiBase": "https://api.octile.eu.cc",
-  "siteBase": "https://earthquake.transport-pwa.com/",
+  "siteBase": "https://iilha.github.io/earthquake/",
   "features": {
     "events": true
   },
