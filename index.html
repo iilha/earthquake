@@ -669,6 +669,8 @@
       color: #EF5350;
     }
   </style>
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
   <!-- Update Banner (OTA) -->
@@ -1654,6 +1656,7 @@ document.addEventListener('DOMContentLoaded', () => {
     import { refreshBackendStatus, startHealthPoll } from './js/health.js';
     import { initOta, checkForUpdate } from './js/ota.js';
     import { initAnalytics, trackEvent } from './js/analytics.js';
+    import { initSession } from './js/session.js';
 
     // Load config
     async function initializeInfrastructure() {
@@ -1662,7 +1665,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const config = await configResp.json();
 
         // Initialize analytics
+        // Initialize session manager (doesn't bootstrap yet, just sets config)
+        console.log('[Init] Initializing session manager...');
+        initSession(config);
+        console.log('[Init] Session manager initialized');
+
+        // Initialize analytics
+        console.log('[Init] Initializing analytics...');
         initAnalytics(config);
+        console.log('[Init] Analytics initialized');
 
         // Track app_open event with session guard
         const trackAppOpen = () => {
