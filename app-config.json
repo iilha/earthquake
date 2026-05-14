@@ -7,7 +7,7 @@
     "events": true
   },
   "debug": false,
-  "supportEmail": "octile-pwa@googlegroups.com",
+  "supportEmail": "octile-pwa+earthquake@googlegroups.com",
   "playStoreUrl": "https://play.google.com/store/apps/details?id=tw.pwa.earthquake",
   "storagePrefix": "earthquake_",
   "turnstileSiteKey": "0x4AAAAAACuir272GuoMUfnx"
